@@ -47,7 +47,7 @@ window.onscroll = () => {
 
 // Typing effect
 const typedSpan = document.querySelector('.typing');
-const texts = ["Full Stack Web Developer", "Cybersecurity Enthusiast", "AI/ML Student"];
+const texts = ["Computer Science Student", "AI/ML Projects", "Cybersecurity Enthusiast"];
 let i = 0, j = 0, currentText = '', isDeleting = false;
 
 function type() {
@@ -58,7 +58,7 @@ function type() {
       currentText = texts[i].slice(0, --j);
     }
 
-    if(typedSpan) typedSpan.textContent = currentText;
+    if (typedSpan) typedSpan.textContent = currentText;
 
     if (!isDeleting && j === texts[i].length) {
       isDeleting = true;
@@ -86,7 +86,7 @@ if (glow) {
 }
 
 // Initialize Vanilla-Tilt for Cards
-if(typeof VanillaTilt !== 'undefined') {
+if (typeof VanillaTilt !== 'undefined') {
   VanillaTilt.init(document.querySelectorAll(".skill-box, .box, .exp-card, .project-box, .cert-img"), {
     max: 12,
     speed: 400,
@@ -114,13 +114,13 @@ const termInput = document.getElementById('term-input');
 const termBody = document.getElementById('terminal-body');
 
 if (termInput && termBody) {
-  termInput.addEventListener('keydown', function(e) {
+  termInput.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') {
       const command = this.value.trim().toLowerCase();
       this.value = '';
 
       let response = '';
-      switch(command) {
+      switch (command) {
         case 'help':
           response = 'Available commands: whoami, skills, clear, sudo, repo';
           break;
@@ -150,7 +150,7 @@ if (termInput && termBody) {
       newLine.className = 'term-output-line';
       newLine.innerHTML = `<span class="term-prompt">kshitij@portfolio:~$</span> ${command}<br><span style="color:#94a3b8; margin-bottom:10px; display:inline-block">${response}</span>`;
       termBody.insertBefore(newLine, termInput.parentElement);
-      
+
       termBody.scrollTop = termBody.scrollHeight;
     }
   });
@@ -172,7 +172,7 @@ function showToast(message) {
   toast.className = 'toast';
   toast.innerText = message;
   toastContainer.appendChild(toast);
-  
+
   setTimeout(() => {
     toast.style.animation = 'slideIn 0.3s ease reverse forwards';
     setTimeout(() => toast.remove(), 300);
@@ -180,20 +180,20 @@ function showToast(message) {
 }
 
 if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault();
     const formData = new FormData(this);
-    
+
     fetch(this.action, {
       method: 'POST',
       body: formData
     })
-    .then(() => {
-      showToast('Message sent successfully!');
-      this.reset();
-    })
-    .catch(() => {
-      showToast('Error sending message. Please try again.');
-    });
+      .then(() => {
+        showToast('Message sent successfully!');
+        this.reset();
+      })
+      .catch(() => {
+        showToast('Error sending message. Please try again.');
+      });
   });
 }
